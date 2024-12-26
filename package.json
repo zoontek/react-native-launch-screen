@@ -98,7 +98,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "react": "18.3.1",
-    "react-native": "0.76.1",
+    "react-native": "0.77.0-rc.4",
     "react-native-builder-bob": "^0.31.0",
     "semver": "^7.6.3",
     "typescript": "^5.6.3"

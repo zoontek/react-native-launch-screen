@@ -187,7 +187,40 @@ type PluginOptions = {
 
 ### With bare React Native
 
-#### iOS
+#### iOS (for react-native 0.77+)
+
+Edit the `ios/YourApp-Bridging-Header.h` to expose Obj-c methods to Swift.
+
+```obj-c
+// …
+
+// ⬇️ Add this import
+#import "RNBootSplash.h"
+```
+
+Edit the `ios/AppDelegate.swift`
+
+```swift
+import UIKit
+import React
+import React_RCTAppDelegate
+import ReactAppDependencyProvider
+// ...
+
+@main
+class AppDelegate: RCTAppDelegate {
+  // ...
+  
+  // ⬇️ Add this and override customize method
+  override func customize(_ rootView: RCTRootView!) {
+    super.customize(rootView)
+    RNBootSplash.initWithStoryboard("BootSplash", rootView: rootView) // ⬅️ initialize the splash screen
+  }
+}
+
+```
+
+#### iOS (for react-native < 0.77)
 
 Edit the `ios/YourApp/AppDelegate.mm` file:
 
